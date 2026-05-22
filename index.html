@@ -1,0 +1,874 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>XTREINOS ANBU E-SPORT</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body{
+
+    background:
+    linear-gradient(
+        rgba(0,0,0,0.82),
+        rgba(0,0,0,0.82)
+    ),
+    url('./logo.png');
+
+    background-color:#000;
+
+    background-repeat:no-repeat;
+
+    background-position:center;
+
+    background-size:850px;
+
+    background-attachment:fixed;
+
+    color:white;
+
+    padding:20px;
+}
+
+.container{
+
+    max-width:1200px;
+
+    margin:auto;
+}
+
+h1{
+
+    text-align:center;
+
+    color:#ffbb00;
+
+    margin-bottom:30px;
+
+    font-size:55px;
+
+    font-weight:bold;
+
+    text-shadow:
+    0 0 10px
+    rgba(255,187,0,0.5);
+}
+
+.card{
+
+    background:
+    rgba(0,0,0,0.45);
+
+    border:1px solid
+    rgba(255,187,0,0.25);
+
+    border-radius:25px;
+
+    padding:20px;
+
+    margin-bottom:25px;
+
+    backdrop-filter:blur(2px);
+
+    box-shadow:
+    0 0 15px
+    rgba(255,187,0,0.08);
+}
+
+h2{
+
+    color:#ffbb00;
+
+    margin-bottom:15px;
+
+    font-size:22px;
+}
+
+input,
+select{
+
+    width:100%;
+
+    padding:16px;
+
+    border:none;
+
+    border-radius:14px;
+
+    background:
+    rgba(255,255,255,0.08);
+
+    color:white;
+
+    margin-bottom:14px;
+
+    font-size:16px;
+
+    outline:none;
+}
+
+input::placeholder{
+
+    color:#888;
+}
+
+button{
+
+    padding:15px 22px;
+
+    border:none;
+
+    border-radius:14px;
+
+    background:#ffbb00;
+
+    color:black;
+
+    font-weight:bold;
+
+    font-size:15px;
+
+    cursor:pointer;
+
+    margin-right:10px;
+
+    margin-top:10px;
+
+    transition:0.2s;
+}
+
+button:hover{
+
+    transform:scale(1.03);
+
+    opacity:0.95;
+}
+
+.guilda-item{
+
+    background:
+    rgba(255,255,255,0.06);
+
+    padding:15px;
+
+    border-radius:12px;
+
+    margin-bottom:12px;
+
+    font-size:17px;
+}
+
+.quedas-grid{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(250px,1fr));
+
+    gap:15px;
+}
+
+.queda-box{
+
+    background:
+    rgba(255,255,255,0.05);
+
+    padding:15px;
+
+    border-radius:14px;
+}
+
+.queda-box h3{
+
+    margin-bottom:10px;
+
+    color:#ffbb00;
+}
+
+table{
+
+    width:100%;
+
+    border-collapse:collapse;
+
+    margin-top:10px;
+
+    overflow:hidden;
+
+    border-radius:15px;
+}
+
+table th{
+
+    background:#ffbb00;
+
+    color:black;
+
+    padding:14px;
+
+    font-size:16px;
+}
+
+table td{
+
+    border:1px solid
+    rgba(255,255,255,0.08);
+
+    padding:14px;
+
+    text-align:center;
+
+    background:
+    rgba(255,255,255,0.03);
+}
+
+.top1{
+
+    color:gold;
+
+    font-weight:bold;
+}
+
+.top2{
+
+    color:silver;
+
+    font-weight:bold;
+}
+
+.top3{
+
+    color:#cd7f32;
+
+    font-weight:bold;
+}
+
+.mensagem{
+
+    margin-top:10px;
+
+    color:#00ff88;
+
+    font-weight:bold;
+
+    font-size:15px;
+}
+
+@media(max-width:700px){
+
+    body{
+
+        background-size:500px;
+    }
+
+    h1{
+
+        font-size:35px;
+    }
+
+    table{
+
+        font-size:13px;
+    }
+
+    button{
+
+        width:100%;
+    }
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>XTREINOS ANBU E-SPORT</h1>
+
+<!-- CADASTRAR -->
+
+<div class="card">
+
+<h2>Cadastrar Guilda</h2>
+
+<input
+type="text"
+id="guilda"
+placeholder="Nome da Guilda">
+
+<button onclick="cadastrarGuilda()">
+Cadastrar Guilda
+</button>
+
+<button onclick="resetarSistema()">
+Resetar Sistema
+</button>
+
+<div
+class="mensagem"
+id="mensagem">
+</div>
+
+</div>
+
+<!-- GUILDAS -->
+
+<div class="card">
+
+<h2>Guildas Cadastradas</h2>
+
+<div id="listaGuildas"></div>
+
+</div>
+
+<!-- RODADAS -->
+
+<div class="card">
+
+<h2>Lançar Rodadas</h2>
+
+<select id="selectGuilda"></select>
+
+<div
+class="quedas-grid"
+id="quedas">
+</div>
+
+<button onclick="salvarRodadas()">
+Salvar Pontuação
+</button>
+
+</div>
+
+<!-- RANKING -->
+
+<div class="card">
+
+<h2>Ranking Final</h2>
+
+<table>
+
+<thead>
+
+<tr>
+
+<th>#</th>
+<th>Guilda</th>
+<th>Pontos</th>
+<th>Kills</th>
+
+</tr>
+
+</thead>
+
+<tbody id="ranking"></tbody>
+
+</table>
+
+</div>
+
+</div>
+
+<script>
+
+let guildas =
+
+JSON.parse(
+    localStorage.getItem(
+        "guildas"
+    )
+) || [];
+
+// =========================
+// SALVAR LOCAL
+// =========================
+
+function salvarLocal(){
+
+    localStorage.setItem(
+
+        "guildas",
+
+        JSON.stringify(guildas)
+    );
+}
+
+// =========================
+// MENSAGEM
+// =========================
+
+function mensagem(texto){
+
+    document.getElementById(
+        "mensagem"
+    ).innerHTML = texto;
+
+    setTimeout(()=>{
+
+        document.getElementById(
+            "mensagem"
+        ).innerHTML = "";
+
+    },3000);
+}
+
+// =========================
+// CADASTRAR
+// =========================
+
+function cadastrarGuilda(){
+
+    let nome =
+
+    document.getElementById(
+        "guilda"
+    ).value.trim();
+
+    if(nome === ""){
+
+        alert(
+            "Digite um nome."
+        );
+
+        return;
+    }
+
+    let existe =
+
+    guildas.some(g =>
+
+        g.nome.toLowerCase()
+
+        ===
+
+        nome.toLowerCase()
+    );
+
+    if(existe){
+
+        alert(
+            "Guilda já cadastrada."
+        );
+
+        return;
+    }
+
+    guildas.push({
+
+        nome:nome,
+
+        kills:[0,0,0,0],
+
+        colocacoes:[0,0,0,0],
+
+        pontos:0,
+
+        totalKills:0
+    });
+
+    document.getElementById(
+        "guilda"
+    ).value = "";
+
+    salvarLocal();
+
+    atualizarTudo();
+
+    mensagem(
+        "Guilda cadastrada."
+    );
+}
+
+// =========================
+// ATUALIZAR TUDO
+// =========================
+
+function atualizarTudo(){
+
+    atualizarGuildas();
+
+    atualizarSelect();
+
+    atualizarRanking();
+
+    gerarCampos();
+}
+
+// =========================
+// LISTAR GUILDAS
+// =========================
+
+function atualizarGuildas(){
+
+    let lista =
+
+    document.getElementById(
+        "listaGuildas"
+    );
+
+    lista.innerHTML = "";
+
+    if(guildas.length === 0){
+
+        lista.innerHTML =
+        "Nenhuma guilda cadastrada.";
+
+        return;
+    }
+
+    guildas.forEach((g,index)=>{
+
+        lista.innerHTML += `
+
+        <div class="guilda-item">
+
+        ${index + 1} - ${g.nome}
+
+        </div>
+
+        `;
+    });
+}
+
+// =========================
+// SELECT
+// =========================
+
+function atualizarSelect(){
+
+    let select =
+
+    document.getElementById(
+        "selectGuilda"
+    );
+
+    select.innerHTML = "";
+
+    guildas.forEach((g,index)=>{
+
+        let option =
+
+        document.createElement(
+            "option"
+        );
+
+        option.value = index;
+
+        option.text = g.nome;
+
+        select.appendChild(option);
+    });
+}
+
+// =========================
+// CAMPOS
+// =========================
+
+function gerarCampos(){
+
+    let div =
+
+    document.getElementById(
+        "quedas"
+    );
+
+    div.innerHTML = "";
+
+    for(let i=0;i<4;i++){
+
+        div.innerHTML += `
+
+        <div class="queda-box">
+
+        <h3>Queda ${i+1}</h3>
+
+        <input
+        type="number"
+        id="colocacao${i}"
+        placeholder="Colocação">
+
+        <input
+        type="number"
+        id="kill${i}"
+        placeholder="Kills">
+
+        </div>
+
+        `;
+    }
+}
+
+// =========================
+// PONTOS
+// =========================
+
+function calcularPontos(
+    colocacao,
+    kills
+){
+
+    let pontos = 0;
+
+    switch(colocacao){
+
+        case 1:pontos=12;break;
+        case 2:pontos=10;break;
+        case 3:pontos=9;break;
+        case 4:pontos=8;break;
+        case 5:pontos=7;break;
+        case 6:pontos=6;break;
+        case 7:pontos=5;break;
+        case 8:pontos=4;break;
+        case 9:pontos=3;break;
+        case 10:pontos=2;break;
+        case 11:pontos=1;break;
+        case 12:pontos=0;break;
+    }
+
+    return pontos + kills;
+}
+
+// =========================
+// SALVAR
+// =========================
+
+function salvarRodadas(){
+
+    let index =
+
+    document.getElementById(
+        "selectGuilda"
+    ).value;
+
+    if(index === ""){
+
+        alert(
+            "Cadastre guildas."
+        );
+
+        return;
+    }
+
+    let totalPontos = 0;
+
+    let totalKills = 0;
+
+    for(let i=0;i<4;i++){
+
+        let colocacao =
+
+        parseInt(
+
+            document.getElementById(
+                "colocacao"+i
+            ).value
+        );
+
+        let kill =
+
+        parseInt(
+
+            document.getElementById(
+                "kill"+i
+            ).value
+        );
+
+        if(
+
+            isNaN(colocacao)
+
+            ||
+
+            colocacao < 1
+
+            ||
+
+            colocacao > 12
+        ){
+
+            alert(
+                "Colocação inválida na queda "
+                + (i+1)
+            );
+
+            return;
+        }
+
+        if(
+
+            isNaN(kill)
+
+            ||
+
+            kill < 0
+        ){
+
+            alert(
+                "Kills inválidas na queda "
+                + (i+1)
+            );
+
+            return;
+        }
+
+        guildas[index]
+        .colocacoes[i] =
+        colocacao;
+
+        guildas[index]
+        .kills[i] =
+        kill;
+
+        totalPontos +=
+
+        calcularPontos(
+            colocacao,
+            kill
+        );
+
+        totalKills += kill;
+    }
+
+    guildas[index].pontos =
+    totalPontos;
+
+    guildas[index].totalKills =
+    totalKills;
+
+    salvarLocal();
+
+    atualizarRanking();
+
+    for(let i=0;i<4;i++){
+
+        document.getElementById(
+            "colocacao"+i
+        ).value = "";
+
+        document.getElementById(
+            "kill"+i
+        ).value = "";
+    }
+
+    let proximo =
+
+    parseInt(index) + 1;
+
+    if(proximo < guildas.length){
+
+        document.getElementById(
+            "selectGuilda"
+        ).value = proximo;
+    }
+
+    mensagem(
+        "Pontuação salva."
+    );
+}
+
+// =========================
+// RANKING
+// =========================
+
+function atualizarRanking(){
+
+    let ranking =
+
+    document.getElementById(
+        "ranking"
+    );
+
+    ranking.innerHTML = "";
+
+    let rankingGuildas =
+    [...guildas];
+
+    rankingGuildas.sort((a,b)=>
+
+        b.pontos - a.pontos
+    );
+
+    rankingGuildas.forEach((g,index)=>{
+
+        let classe = "";
+
+        if(index === 0){
+
+            classe = "top1";
+        }
+
+        else if(index === 1){
+
+            classe = "top2";
+        }
+
+        else if(index === 2){
+
+            classe = "top3";
+        }
+
+        ranking.innerHTML += `
+
+        <tr class="${classe}">
+
+        <td>${index + 1}</td>
+
+        <td>${g.nome}</td>
+
+        <td>${g.pontos}</td>
+
+        <td>${g.totalKills}</td>
+
+        </tr>
+
+        `;
+    });
+}
+
+// =========================
+// RESETAR
+// =========================
+
+function resetarSistema(){
+
+    let confirmar = confirm(
+        "Deseja resetar tudo?"
+    );
+
+    if(confirmar){
+
+        guildas = [];
+
+        localStorage.removeItem(
+            "guildas"
+        );
+
+        atualizarTudo();
+
+        mensagem(
+            "Sistema resetado."
+        );
+    }
+}
+
+atualizarTudo();
+
+</script>
+
+</body>
+</html>
