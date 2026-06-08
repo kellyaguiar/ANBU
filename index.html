@@ -1,874 +1,240 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
-
 <meta charset="UTF-8">
-
-<meta name="viewport"
-content="width=device-width, initial-scale=1.0">
-
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>XTREINOS ANBU E-SPORT</title>
-
 <style>
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:Arial, sans-serif;
-}
-
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif}
 body{
-
-    background:
-    linear-gradient(
-        rgba(0,0,0,0.82),
-        rgba(0,0,0,0.82)
-    ),
-    url('./logo.png');
-
-    background-color:#000;
-
-    background-repeat:no-repeat;
-
-    background-position:center;
-
-    background-size:850px;
-
-    background-attachment:fixed;
-
-    color:white;
-
-    padding:20px;
-}
-
-.container{
-
-    max-width:1200px;
-
-    margin:auto;
-}
-
-h1{
-
-    text-align:center;
-
-    color:#ffbb00;
-
-    margin-bottom:30px;
-
-    font-size:55px;
-
-    font-weight:bold;
-
-    text-shadow:
-    0 0 10px
-    rgba(255,187,0,0.5);
-}
-
-.card{
-
-    background:
-    rgba(0,0,0,0.45);
-
-    border:1px solid
-    rgba(255,187,0,0.25);
-
-    border-radius:25px;
-
-    padding:20px;
-
-    margin-bottom:25px;
-
-    backdrop-filter:blur(2px);
-
-    box-shadow:
-    0 0 15px
-    rgba(255,187,0,0.08);
-}
-
-h2{
-
-    color:#ffbb00;
-
-    margin-bottom:15px;
-
-    font-size:22px;
-}
-
-input,
-select{
-
-    width:100%;
-
-    padding:16px;
-
-    border:none;
-
-    border-radius:14px;
-
-    background:
-    rgba(255,255,255,0.08);
-
-    color:white;
-
-    margin-bottom:14px;
-
-    font-size:16px;
-
-    outline:none;
-}
-
-input::placeholder{
-
-    color:#888;
-}
-
-button{
-
-    padding:15px 22px;
-
-    border:none;
-
-    border-radius:14px;
-
-    background:#ffbb00;
-
-    color:black;
-
-    font-weight:bold;
-
-    font-size:15px;
-
-    cursor:pointer;
-
-    margin-right:10px;
-
-    margin-top:10px;
-
-    transition:0.2s;
-}
-
-button:hover{
-
-    transform:scale(1.03);
-
-    opacity:0.95;
-}
-
-.guilda-item{
-
-    background:
-    rgba(255,255,255,0.06);
-
-    padding:15px;
-
-    border-radius:12px;
-
-    margin-bottom:12px;
-
-    font-size:17px;
-}
-
-.quedas-grid{
-
-    display:grid;
-
-    grid-template-columns:
-    repeat(auto-fit,minmax(250px,1fr));
-
-    gap:15px;
-}
-
-.queda-box{
-
-    background:
-    rgba(255,255,255,0.05);
-
-    padding:15px;
-
-    border-radius:14px;
-}
-
-.queda-box h3{
-
-    margin-bottom:10px;
-
-    color:#ffbb00;
-}
-
-table{
-
-    width:100%;
-
-    border-collapse:collapse;
-
-    margin-top:10px;
-
-    overflow:hidden;
-
-    border-radius:15px;
-}
-
-table th{
-
-    background:#ffbb00;
-
-    color:black;
-
-    padding:14px;
-
-    font-size:16px;
-}
-
-table td{
-
-    border:1px solid
-    rgba(255,255,255,0.08);
-
-    padding:14px;
-
-    text-align:center;
-
-    background:
-    rgba(255,255,255,0.03);
-}
-
-.top1{
-
-    color:gold;
-
-    font-weight:bold;
-}
-
-.top2{
-
-    color:silver;
-
-    font-weight:bold;
-}
-
-.top3{
-
-    color:#cd7f32;
-
-    font-weight:bold;
-}
-
-.mensagem{
-
-    margin-top:10px;
-
-    color:#00ff88;
-
-    font-weight:bold;
-
-    font-size:15px;
-}
-
-@media(max-width:700px){
-
-    body{
-
-        background-size:500px;
-    }
-
-    h1{
-
-        font-size:35px;
-    }
-
-    table{
-
-        font-size:13px;
-    }
-
-    button{
-
-        width:100%;
-    }
-}
-
+background:linear-gradient(rgba(0,0,0,.82),rgba(0,0,0,.82)),url('./logo.png');
+background-color:#000;background-repeat:no-repeat;background-position:center;
+background-size:850px;background-attachment:fixed;color:#fff;padding:20px}
+.container{max-width:1200px;margin:auto}
+h1{text-align:center;color:#ffbb00;margin-bottom:20px;font-size:55px}
+.card{background:rgba(0,0,0,.45);border:1px solid rgba(255,187,0,.25);
+border-radius:25px;padding:20px;margin-bottom:25px}
+h2{color:#ffbb00;margin-bottom:15px}
+input,select{width:100%;padding:16px;border:none;border-radius:14px;
+background:rgba(255,255,255,.08);color:#fff;margin-bottom:14px}
+button{padding:15px 22px;border:none;border-radius:14px;background:#ffbb00;
+color:#000;font-weight:bold;cursor:pointer;margin:5px}
+.tabs{text-align:center;margin-bottom:20px}
+.quedas-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:15px}
+.queda-box{background:rgba(255,255,255,.05);padding:15px;border-radius:14px}
+table{width:100%;border-collapse:collapse}
+th{background:#ffbb00;color:#000;padding:12px}
+td{padding:12px;border:1px solid rgba(255,255,255,.08);text-align:center}
+.guilda-item{background:rgba(255,255,255,.06);padding:12px;border-radius:12px;margin-bottom:8px}
+.top1{color:gold;font-weight:bold}.top2{color:silver;font-weight:bold}.top3{color:#cd7f32;font-weight:bold}
+.hidden{display:none}
+#mvpAtual{text-align:center;font-size:22px;color:#ffbb00}
 </style>
-
 </head>
-
 <body>
-
 <div class="container">
-
 <h1>XTREINOS ANBU E-SPORT</h1>
 
-<!-- CADASTRAR -->
+<div class="tabs">
+<button onclick="mostrarAba('pontuacao')">🏆 Calcular Pontuação</button>
+<button onclick="mostrarAba('mvp')">🎯 Calcular MVP</button>
+</div>
 
+<div id="abaPontuacao">
 <div class="card">
-
 <h2>Cadastrar Guilda</h2>
-
-<input
-type="text"
-id="guilda"
-placeholder="Nome da Guilda">
-
-<button onclick="cadastrarGuilda()">
-Cadastrar Guilda
-</button>
-
-<button onclick="resetarSistema()">
-Resetar Sistema
-</button>
-
-<div
-class="mensagem"
-id="mensagem">
+<input type="text" id="guilda" placeholder="Nome da Guilda">
+<button onclick="cadastrarGuilda()">Cadastrar Guilda</button>
+<button onclick="resetarSistema()">Resetar Sistema</button>
 </div>
-
-</div>
-
-<!-- GUILDAS -->
 
 <div class="card">
-
 <h2>Guildas Cadastradas</h2>
-
 <div id="listaGuildas"></div>
-
 </div>
 
-<!-- RODADAS -->
-
 <div class="card">
-
 <h2>Lançar Rodadas</h2>
-
 <select id="selectGuilda"></select>
-
-<div
-class="quedas-grid"
-id="quedas">
+<div class="quedas-grid" id="quedas"></div>
+<button onclick="salvarRodadas()">Salvar Pontuação</button>
 </div>
-
-<button onclick="salvarRodadas()">
-Salvar Pontuação
-</button>
-
-</div>
-
-<!-- RANKING -->
 
 <div class="card">
-
 <h2>Ranking Final</h2>
-
 <table>
-
-<thead>
-
-<tr>
-
-<th>#</th>
-<th>Guilda</th>
-<th>Pontos</th>
-<th>Kills</th>
-
-</tr>
-
-</thead>
-
+<thead><tr><th>#</th><th>Guilda</th><th>Pontos</th><th>Kills</th></tr></thead>
 <tbody id="ranking"></tbody>
-
 </table>
-
+</div>
 </div>
 
+<div id="abaMVP" class="hidden">
+<div class="card">
+<h2>Cadastrar Jogador</h2>
+<input type="text" id="nomeJogador" placeholder="Nome do Jogador">
+<select id="guildaJogador"></select>
+<button onclick="salvarJogador()">Cadastrar / Atualizar Jogador</button>
+</div>
+
+<div class="card">
+<h2>Lançar Kills do Jogador</h2>
+<select id="selectJogador"></select>
+<div class="quedas-grid">
+<div class="queda-box"><h3>Queda 1</h3><input type="number" id="jk1"></div>
+<div class="queda-box"><h3>Queda 2</h3><input type="number" id="jk2"></div>
+<div class="queda-box"><h3>Queda 3</h3><input type="number" id="jk3"></div>
+<div class="queda-box"><h3>Queda 4</h3><input type="number" id="jk4"></div>
+</div>
+<button onclick="salvarKillsJogador()">Salvar Kills</button>
+</div>
+
+<div class="card">
+<h2>🏆 MVP Atual</h2>
+<div id="mvpAtual">Nenhum jogador cadastrado</div>
+</div>
+
+<div class="card">
+<h2>Ranking MVP</h2>
+<table>
+<thead><tr><th>#</th><th>Jogador</th><th>Guilda</th><th>Kills</th></tr></thead>
+<tbody id="rankingMVP"></tbody>
+</table>
+</div>
+</div>
 </div>
 
 <script>
-
-let guildas =
-
-JSON.parse(
-    localStorage.getItem(
-        "guildas"
-    )
-) || [];
-
-// =========================
-// SALVAR LOCAL
-// =========================
+let guildas=JSON.parse(localStorage.getItem("guildas"))||[];
+let jogadores=JSON.parse(localStorage.getItem("jogadores"))||[];
 
 function salvarLocal(){
-
-    localStorage.setItem(
-
-        "guildas",
-
-        JSON.stringify(guildas)
-    );
+ localStorage.setItem("guildas",JSON.stringify(guildas));
+ localStorage.setItem("jogadores",JSON.stringify(jogadores));
 }
 
-// =========================
-// MENSAGEM
-// =========================
-
-function mensagem(texto){
-
-    document.getElementById(
-        "mensagem"
-    ).innerHTML = texto;
-
-    setTimeout(()=>{
-
-        document.getElementById(
-            "mensagem"
-        ).innerHTML = "";
-
-    },3000);
+function mostrarAba(a){
+ document.getElementById("abaPontuacao").classList.toggle("hidden",a!=="pontuacao");
+ document.getElementById("abaMVP").classList.toggle("hidden",a!=="mvp");
 }
-
-// =========================
-// CADASTRAR
-// =========================
 
 function cadastrarGuilda(){
-
-    let nome =
-
-    document.getElementById(
-        "guilda"
-    ).value.trim();
-
-    if(nome === ""){
-
-        alert(
-            "Digite um nome."
-        );
-
-        return;
-    }
-
-    let existe =
-
-    guildas.some(g =>
-
-        g.nome.toLowerCase()
-
-        ===
-
-        nome.toLowerCase()
-    );
-
-    if(existe){
-
-        alert(
-            "Guilda já cadastrada."
-        );
-
-        return;
-    }
-
-    guildas.push({
-
-        nome:nome,
-
-        kills:[0,0,0,0],
-
-        colocacoes:[0,0,0,0],
-
-        pontos:0,
-
-        totalKills:0
-    });
-
-    document.getElementById(
-        "guilda"
-    ).value = "";
-
-    salvarLocal();
-
-    atualizarTudo();
-
-    mensagem(
-        "Guilda cadastrada."
-    );
+ let nome=document.getElementById("guilda").value.trim();
+ if(!nome)return;
+ if(guildas.some(g=>g.nome.toLowerCase()===nome.toLowerCase())) return alert("Guilda já cadastrada");
+ guildas.push({nome,kills:[0,0,0,0],colocacoes:[0,0,0,0],pontos:0,totalKills:0});
+ document.getElementById("guilda").value="";
+ salvarLocal(); atualizarTudo();
 }
-
-// =========================
-// ATUALIZAR TUDO
-// =========================
-
-function atualizarTudo(){
-
-    atualizarGuildas();
-
-    atualizarSelect();
-
-    atualizarRanking();
-
-    gerarCampos();
-}
-
-// =========================
-// LISTAR GUILDAS
-// =========================
 
 function atualizarGuildas(){
-
-    let lista =
-
-    document.getElementById(
-        "listaGuildas"
-    );
-
-    lista.innerHTML = "";
-
-    if(guildas.length === 0){
-
-        lista.innerHTML =
-        "Nenhuma guilda cadastrada.";
-
-        return;
-    }
-
-    guildas.forEach((g,index)=>{
-
-        lista.innerHTML += `
-
-        <div class="guilda-item">
-
-        ${index + 1} - ${g.nome}
-
-        </div>
-
-        `;
-    });
+ let lista=document.getElementById("listaGuildas");
+ lista.innerHTML=guildas.map((g,i)=>`<div class="guilda-item">${i+1} - ${g.nome}</div>`).join("");
 }
-
-// =========================
-// SELECT
-// =========================
 
 function atualizarSelect(){
-
-    let select =
-
-    document.getElementById(
-        "selectGuilda"
-    );
-
-    select.innerHTML = "";
-
-    guildas.forEach((g,index)=>{
-
-        let option =
-
-        document.createElement(
-            "option"
-        );
-
-        option.value = index;
-
-        option.text = g.nome;
-
-        select.appendChild(option);
-    });
+ let s=document.getElementById("selectGuilda");
+ let gj=document.getElementById("guildaJogador");
+ s.innerHTML=""; gj.innerHTML="";
+ guildas.forEach((g,i)=>{
+   s.innerHTML+=`<option value="${i}">${g.nome}</option>`;
+   gj.innerHTML+=`<option>${g.nome}</option>`;
+ });
 }
-
-// =========================
-// CAMPOS
-// =========================
 
 function gerarCampos(){
-
-    let div =
-
-    document.getElementById(
-        "quedas"
-    );
-
-    div.innerHTML = "";
-
-    for(let i=0;i<4;i++){
-
-        div.innerHTML += `
-
-        <div class="queda-box">
-
-        <h3>Queda ${i+1}</h3>
-
-        <input
-        type="number"
-        id="colocacao${i}"
-        placeholder="Colocação">
-
-        <input
-        type="number"
-        id="kill${i}"
-        placeholder="Kills">
-
-        </div>
-
-        `;
-    }
+ let d=document.getElementById("quedas"); d.innerHTML="";
+ for(let i=0;i<4;i++){
+  d.innerHTML+=`<div class="queda-box"><h3>Queda ${i+1}</h3>
+  <input type="number" id="colocacao${i}" placeholder="Colocação">
+  <input type="number" id="kill${i}" placeholder="Kills"></div>`;
+ }
 }
 
-// =========================
-// PONTOS
-// =========================
-
-function calcularPontos(
-    colocacao,
-    kills
-){
-
-    let pontos = 0;
-
-    switch(colocacao){
-
-        case 1:pontos=12;break;
-        case 2:pontos=10;break;
-        case 3:pontos=9;break;
-        case 4:pontos=8;break;
-        case 5:pontos=7;break;
-        case 6:pontos=6;break;
-        case 7:pontos=5;break;
-        case 8:pontos=4;break;
-        case 9:pontos=3;break;
-        case 10:pontos=2;break;
-        case 11:pontos=1;break;
-        case 12:pontos=0;break;
-    }
-
-    return pontos + kills;
+function calcularPontos(c,k){
+ let pts={1:12,2:10,3:9,4:8,5:7,6:6,7:5,8:4,9:3,10:2,11:1,12:0};
+ return (pts[c]||0)+k;
 }
-
-// =========================
-// SALVAR
-// =========================
 
 function salvarRodadas(){
-
-    let index =
-
-    document.getElementById(
-        "selectGuilda"
-    ).value;
-
-    if(index === ""){
-
-        alert(
-            "Cadastre guildas."
-        );
-
-        return;
-    }
-
-    let totalPontos = 0;
-
-    let totalKills = 0;
-
-    for(let i=0;i<4;i++){
-
-        let colocacao =
-
-        parseInt(
-
-            document.getElementById(
-                "colocacao"+i
-            ).value
-        );
-
-        let kill =
-
-        parseInt(
-
-            document.getElementById(
-                "kill"+i
-            ).value
-        );
-
-        if(
-
-            isNaN(colocacao)
-
-            ||
-
-            colocacao < 1
-
-            ||
-
-            colocacao > 12
-        ){
-
-            alert(
-                "Colocação inválida na queda "
-                + (i+1)
-            );
-
-            return;
-        }
-
-        if(
-
-            isNaN(kill)
-
-            ||
-
-            kill < 0
-        ){
-
-            alert(
-                "Kills inválidas na queda "
-                + (i+1)
-            );
-
-            return;
-        }
-
-        guildas[index]
-        .colocacoes[i] =
-        colocacao;
-
-        guildas[index]
-        .kills[i] =
-        kill;
-
-        totalPontos +=
-
-        calcularPontos(
-            colocacao,
-            kill
-        );
-
-        totalKills += kill;
-    }
-
-    guildas[index].pontos =
-    totalPontos;
-
-    guildas[index].totalKills =
-    totalKills;
-
-    salvarLocal();
-
-    atualizarRanking();
-
-    for(let i=0;i<4;i++){
-
-        document.getElementById(
-            "colocacao"+i
-        ).value = "";
-
-        document.getElementById(
-            "kill"+i
-        ).value = "";
-    }
-
-    let proximo =
-
-    parseInt(index) + 1;
-
-    if(proximo < guildas.length){
-
-        document.getElementById(
-            "selectGuilda"
-        ).value = proximo;
-    }
-
-    mensagem(
-        "Pontuação salva."
-    );
+ let idx=document.getElementById("selectGuilda").value;
+ let tp=0, tk=0;
+ for(let i=0;i<4;i++){
+  let c=parseInt(document.getElementById("colocacao"+i).value)||0;
+  let k=parseInt(document.getElementById("kill"+i).value)||0;
+  guildas[idx].colocacoes[i]=c;
+  guildas[idx].kills[i]=k;
+  tp+=calcularPontos(c,k); tk+=k;
+ }
+ guildas[idx].pontos=tp; guildas[idx].totalKills=tk;
+ salvarLocal(); atualizarRanking();
 }
-
-// =========================
-// RANKING
-// =========================
 
 function atualizarRanking(){
-
-    let ranking =
-
-    document.getElementById(
-        "ranking"
-    );
-
-    ranking.innerHTML = "";
-
-    let rankingGuildas =
-    [...guildas];
-
-    rankingGuildas.sort((a,b)=>
-
-        b.pontos - a.pontos
-    );
-
-    rankingGuildas.forEach((g,index)=>{
-
-        let classe = "";
-
-        if(index === 0){
-
-            classe = "top1";
-        }
-
-        else if(index === 1){
-
-            classe = "top2";
-        }
-
-        else if(index === 2){
-
-            classe = "top3";
-        }
-
-        ranking.innerHTML += `
-
-        <tr class="${classe}">
-
-        <td>${index + 1}</td>
-
-        <td>${g.nome}</td>
-
-        <td>${g.pontos}</td>
-
-        <td>${g.totalKills}</td>
-
-        </tr>
-
-        `;
-    });
+ let r=[...guildas].sort((a,b)=>b.pontos-a.pontos||b.totalKills-a.totalKills);
+ document.getElementById("ranking").innerHTML=r.map((g,i)=>{
+ let c=i==0?'top1':i==1?'top2':i==2?'top3':'';
+ return `<tr class="${c}"><td>${i+1}</td><td>${g.nome}</td><td>${g.pontos}</td><td>${g.totalKills}</td></tr>`;
+ }).join("");
 }
 
-// =========================
-// RESETAR
-// =========================
+function salvarJogador(){
+ let nome=document.getElementById("nomeJogador").value.trim();
+ let guilda=document.getElementById("guildaJogador").value;
+ if(!nome)return;
+ let novo={nome,guilda,kills:[0,0,0,0],totalKills:0};
+ let i=jogadores.findIndex(j=>j.nome.toLowerCase()===nome.toLowerCase());
+ if(i>=0) jogadores[i]=novo; else jogadores.push(novo);
+ salvarLocal(); atualizarJogadores();
+}
+
+function atualizarJogadores(){
+ let s=document.getElementById("selectJogador");
+ s.innerHTML="";
+ jogadores.forEach((j,i)=>s.innerHTML+=`<option value="${i}">${j.nome} (${j.guilda})</option>`);
+ atualizarRankingMVP();
+}
+
+function salvarKillsJogador(){
+ let i=document.getElementById("selectJogador").value;
+ if(i==="") return;
+ let total=0;
+ for(let x=1;x<=4;x++){
+   let k=parseInt(document.getElementById("jk"+x).value)||0;
+   jogadores[i].kills[x-1]=k;
+   total+=k;
+ }
+ jogadores[i].totalKills=total;
+ salvarLocal(); atualizarRankingMVP();
+}
+
+function atualizarRankingMVP(){
+ let r=[...jogadores].sort((a,b)=>b.totalKills-a.totalKills);
+ document.getElementById("rankingMVP").innerHTML=r.map((j,i)=>
+ `<tr><td>${i+1}</td><td>${j.nome}</td><td>${j.guilda}</td><td>${j.totalKills}</td></tr>`).join("");
+ if(r.length){
+  document.getElementById("mvpAtual").innerHTML=`${r[0].nome}<br>${r[0].guilda}<br>${r[0].totalKills} KILLS`;
+ }
+}
 
 function resetarSistema(){
+ if(confirm("Deseja resetar tudo?")){
+   guildas=[]; jogadores=[];
+   localStorage.removeItem("guildas");
+   localStorage.removeItem("jogadores");
+   atualizarTudo(); atualizarJogadores();
+ }
+}
 
-    let confirmar = confirm(
-        "Deseja resetar tudo?"
-    );
-
-    if(confirmar){
-
-        guildas = [];
-
-        localStorage.removeItem(
-            "guildas"
-        );
-
-        atualizarTudo();
-
-        mensagem(
-            "Sistema resetado."
-        );
-    }
+function atualizarTudo(){
+ atualizarGuildas();
+ atualizarSelect();
+ atualizarRanking();
+ gerarCampos();
 }
 
 atualizarTudo();
-
+atualizarJogadores();
 </script>
-
 </body>
 </html>
