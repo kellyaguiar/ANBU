@@ -3,238 +3,1162 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>XTREINOS ANBU E-SPORT</title>
+
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif
+}
+
 body{
-background:linear-gradient(rgba(0,0,0,.82),rgba(0,0,0,.82)),url('./logo.png');
-background-color:#000;background-repeat:no-repeat;background-position:center;
-background-size:850px;background-attachment:fixed;color:#fff;padding:20px}
-.container{max-width:1200px;margin:auto}
-h1{text-align:center;color:#ffbb00;margin-bottom:20px;font-size:55px}
-.card{background:rgba(0,0,0,.45);border:1px solid rgba(255,187,0,.25);
-border-radius:25px;padding:20px;margin-bottom:25px}
-h2{color:#ffbb00;margin-bottom:15px}
-input,select{width:100%;padding:16px;border:none;border-radius:14px;
-background:rgba(255,255,255,.08);color:#fff;margin-bottom:14px}
-button{padding:15px 22px;border:none;border-radius:14px;background:#ffbb00;
-color:#000;font-weight:bold;cursor:pointer;margin:5px}
-.tabs{text-align:center;margin-bottom:20px}
-.quedas-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:15px}
-.queda-box{background:rgba(255,255,255,.05);padding:15px;border-radius:14px}
-table{width:100%;border-collapse:collapse}
-th{background:#ffbb00;color:#000;padding:12px}
-td{padding:12px;border:1px solid rgba(255,255,255,.08);text-align:center}
-.guilda-item{background:rgba(255,255,255,.06);padding:12px;border-radius:12px;margin-bottom:8px}
-.top1{color:gold;font-weight:bold}.top2{color:silver;font-weight:bold}.top3{color:#cd7f32;font-weight:bold}
-.hidden{display:none}
-#mvpAtual{text-align:center;font-size:22px;color:#ffbb00}
+    background:
+        linear-gradient(rgba(0,0,0,.82),rgba(0,0,0,.82)),
+        url('./logo.png');
+
+    background-color:#000;
+    background-repeat:no-repeat;
+    background-position:center;
+    background-size:850px;
+    background-attachment:fixed;
+
+    color:#fff;
+    padding:20px
+}
+
+.container{
+    max-width:1200px;
+    margin:auto
+}
+
+h1{
+    text-align:center;
+    color:#ffbb00;
+    margin-bottom:20px;
+    font-size:55px
+}
+
+.card{
+    background:rgba(0,0,0,.45);
+    border:1px solid rgba(255,187,0,.25);
+    border-radius:25px;
+    padding:20px;
+    margin-bottom:25px
+}
+
+h2{
+    color:#ffbb00;
+    margin-bottom:15px
+}
+
+input,select{
+    width:100%;
+    padding:16px;
+    border:none;
+    border-radius:14px;
+    background:rgba(255,255,255,.08);
+    color:#fff;
+    margin-bottom:14px
+}
+
+button{
+    padding:15px 22px;
+    border:none;
+    border-radius:14px;
+    background:#ffbb00;
+    color:#000;
+    font-weight:bold;
+    cursor:pointer;
+    margin:5px
+}
+
+button:hover{
+    background:#ffd34d;
+    transform:scale(1.02);
+}
+
+.tabs{
+    text-align:center;
+    margin-bottom:20px
+}
+
+.quedas-grid{
+    display:grid;
+    grid-template-columns:
+        repeat(auto-fit,minmax(250px,1fr));
+    gap:15px
+}
+
+.queda-box{
+    background:rgba(255,255,255,.05);
+    padding:15px;
+    border-radius:14px
+}
+
+table{
+    width:100%;
+    border-collapse:collapse
+}
+
+th{
+    background:#ffbb00;
+    color:#000;
+    padding:12px
+}
+
+td{
+    padding:12px;
+    border:1px solid rgba(255,255,255,.08);
+    text-align:center
+}
+
+.guilda-item{
+    background:rgba(255,255,255,.06);
+    padding:12px;
+    border-radius:12px;
+    margin-bottom:8px
+}
+
+.top1{
+    color:gold;
+    font-weight:bold
+}
+
+.top2{
+    color:silver;
+    font-weight:bold
+}
+
+.top3{
+    color:#cd7f32;
+    font-weight:bold
+}
+
+.hidden{
+    display:none
+}
+
+#mvpAtual{
+    text-align:center;
+    font-size:22px;
+    color:#ffbb00
+}
+
 </style>
 </head>
+
 <body>
+
 <div class="container">
+
 <h1>XTREINOS ANBU E-SPORT</h1>
 
 <div class="tabs">
-<button onclick="mostrarAba('pontuacao')">🏆 Calcular Pontuação</button>
-<button onclick="mostrarAba('mvp')">🎯 Calcular MVP</button>
+
+<button onclick="mostrarAba('pontuacao')">
+🏆 Calcular Pontuação
+</button>
+
+<button onclick="mostrarAba('mvp')">
+🎯 Calcular MVP
+</button>
+
 </div>
+
+
+<!-- ========================= -->
+<!-- ABA DE PONTUAÇÃO -->
+<!-- ========================= -->
 
 <div id="abaPontuacao">
+
 <div class="card">
+
 <h2>Cadastrar Guilda</h2>
-<input type="text" id="guilda" placeholder="Nome da Guilda">
-<button onclick="cadastrarGuilda()">Cadastrar Guilda</button>
-<button onclick="resetarSistema()">Resetar Sistema</button>
+
+<input
+    type="text"
+    id="guilda"
+    placeholder="Nome da Guilda"
+>
+
+<button onclick="cadastrarGuilda()">
+Cadastrar Guilda
+</button>
+
+<button onclick="resetarSistema()">
+Resetar Sistema
+</button>
+
 </div>
 
+
 <div class="card">
+
 <h2>Guildas Cadastradas</h2>
+
 <div id="listaGuildas"></div>
+
 </div>
 
+
 <div class="card">
+
 <h2>Lançar Rodadas</h2>
+
 <select id="selectGuilda"></select>
-<div class="quedas-grid" id="quedas"></div>
-<button onclick="salvarRodadas()">Salvar Pontuação</button>
+
+<div
+    class="quedas-grid"
+    id="quedas">
 </div>
 
+<button onclick="salvarRodadas()">
+Salvar Pontuação
+</button>
+
+</div>
+
+
 <div class="card">
+
 <h2>Ranking Final</h2>
+
 <table>
-<thead><tr><th>#</th><th>Guilda</th><th>Pontos</th><th>Kills</th></tr></thead>
+
+<thead>
+
+<tr>
+<th>#</th>
+<th>Guilda</th>
+<th>Pontos</th>
+<th>Kills</th>
+</tr>
+
+</thead>
+
 <tbody id="ranking"></tbody>
+
 </table>
+
 </div>
+
 </div>
+
+
+<!-- ========================= -->
+<!-- ABA MVP -->
+<!-- ========================= -->
 
 <div id="abaMVP" class="hidden">
+
 <div class="card">
+
 <h2>Cadastrar Jogador</h2>
-<input type="text" id="nomeJogador" placeholder="Nome do Jogador">
+
+<input
+    type="text"
+    id="nomeJogador"
+    placeholder="Nome do Jogador"
+>
+
 <select id="guildaJogador"></select>
-<button onclick="salvarJogador()">Cadastrar / Atualizar Jogador</button>
+
+<button onclick="salvarJogador()">
+Cadastrar / Atualizar Jogador
+</button>
+
 </div>
 
+
 <div class="card">
+
 <h2>Lançar Kills do Jogador</h2>
+
 <select id="selectJogador"></select>
+
 <div class="quedas-grid">
-<div class="queda-box"><h3>Queda 1</h3><input type="number" id="jk1"></div>
-<div class="queda-box"><h3>Queda 2</h3><input type="number" id="jk2"></div>
-<div class="queda-box"><h3>Queda 3</h3><input type="number" id="jk3"></div>
-<div class="queda-box"><h3>Queda 4</h3><input type="number" id="jk4"></div>
-</div>
-<button onclick="salvarKillsJogador()">Salvar Kills</button>
+
+<div class="queda-box">
+
+<h3>Queda 1</h3>
+
+<input
+    type="number"
+    id="jk1"
+    min="0"
+>
+
 </div>
 
+
+<div class="queda-box">
+
+<h3>Queda 2</h3>
+
+<input
+    type="number"
+    id="jk2"
+    min="0"
+>
+
+</div>
+
+
+<div class="queda-box">
+
+<h3>Queda 3</h3>
+
+<input
+    type="number"
+    id="jk3"
+    min="0"
+>
+
+</div>
+
+
+<div class="queda-box">
+
+<h3>Queda 4</h3>
+
+<input
+    type="number"
+    id="jk4"
+    min="0"
+>
+
+</div>
+
+</div>
+
+<button onclick="salvarKillsJogador()">
+Salvar Kills
+</button>
+
+</div>
+
+
 <div class="card">
+
 <h2>🏆 MVP Atual</h2>
-<div id="mvpAtual">Nenhum jogador cadastrado</div>
+
+<div id="mvpAtual">
+Nenhum jogador cadastrado
 </div>
 
+</div>
+
+
 <div class="card">
+
 <h2>Ranking MVP</h2>
+
 <table>
-<thead><tr><th>#</th><th>Jogador</th><th>Guilda</th><th>Kills</th></tr></thead>
+
+<thead>
+
+<tr>
+<th>#</th>
+<th>Jogador</th>
+<th>Guilda</th>
+<th>Kills</th>
+</tr>
+
+</thead>
+
 <tbody id="rankingMVP"></tbody>
+
 </table>
+
 </div>
+
 </div>
+
 </div>
+
 
 <script>
-let guildas=JSON.parse(localStorage.getItem("guildas"))||[];
-let jogadores=JSON.parse(localStorage.getItem("jogadores"))||[];
+
+/* =====================================
+   DADOS DO SISTEMA
+===================================== */
+
+let guildas =
+    JSON.parse(localStorage.getItem("guildas")) || [];
+
+let jogadores =
+    JSON.parse(localStorage.getItem("jogadores")) || [];
+
+
+/* =====================================
+   SALVAR NO NAVEGADOR
+===================================== */
 
 function salvarLocal(){
- localStorage.setItem("guildas",JSON.stringify(guildas));
- localStorage.setItem("jogadores",JSON.stringify(jogadores));
+
+    localStorage.setItem(
+        "guildas",
+        JSON.stringify(guildas)
+    );
+
+    localStorage.setItem(
+        "jogadores",
+        JSON.stringify(jogadores)
+    );
 }
+
+
+/* =====================================
+   TROCAR ABA
+===================================== */
 
 function mostrarAba(a){
- document.getElementById("abaPontuacao").classList.toggle("hidden",a!=="pontuacao");
- document.getElementById("abaMVP").classList.toggle("hidden",a!=="mvp");
+
+    document
+        .getElementById("abaPontuacao")
+        .classList
+        .toggle(
+            "hidden",
+            a !== "pontuacao"
+        );
+
+    document
+        .getElementById("abaMVP")
+        .classList
+        .toggle(
+            "hidden",
+            a !== "mvp"
+        );
 }
+
+
+/* =====================================
+   CADASTRAR GUILDA
+===================================== */
 
 function cadastrarGuilda(){
- let nome=document.getElementById("guilda").value.trim();
- if(!nome)return;
- if(guildas.some(g=>g.nome.toLowerCase()===nome.toLowerCase())) return alert("Guilda já cadastrada");
- guildas.push({nome,kills:[0,0,0,0],colocacoes:[0,0,0,0],pontos:0,totalKills:0});
- document.getElementById("guilda").value="";
- salvarLocal(); atualizarTudo();
+
+    let nome =
+        document
+        .getElementById("guilda")
+        .value
+        .trim();
+
+    if(!nome){
+        alert("Digite o nome da guilda.");
+        return;
+    }
+
+    if(
+        guildas.some(
+            g =>
+            g.nome.toLowerCase() ===
+            nome.toLowerCase()
+        )
+    ){
+
+        alert("Guilda já cadastrada");
+
+        return;
+    }
+
+
+    guildas.push({
+
+        nome,
+
+        kills:[
+            0,
+            0,
+            0,
+            0
+        ],
+
+        colocacoes:[
+            0,
+            0,
+            0,
+            0
+        ],
+
+        pontos:0,
+
+        totalKills:0
+
+    });
+
+
+    document
+        .getElementById("guilda")
+        .value = "";
+
+
+    salvarLocal();
+
+    atualizarTudo();
 }
+
+
+/* =====================================
+   LISTA DE GUILDAS
+===================================== */
 
 function atualizarGuildas(){
- let lista=document.getElementById("listaGuildas");
- lista.innerHTML=guildas.map((g,i)=>`<div class="guilda-item">${i+1} - ${g.nome}</div>`).join("");
+
+    let lista =
+        document.getElementById(
+            "listaGuildas"
+        );
+
+
+    lista.innerHTML =
+        guildas
+        .map(
+            (g,i) => `
+                <div class="guilda-item">
+                    ${i+1} - ${g.nome}
+                </div>
+            `
+        )
+        .join("");
 }
+
+
+/* =====================================
+   SELECTS DE GUILDAS
+===================================== */
 
 function atualizarSelect(){
- let s=document.getElementById("selectGuilda");
- let gj=document.getElementById("guildaJogador");
- s.innerHTML=""; gj.innerHTML="";
- guildas.forEach((g,i)=>{
-   s.innerHTML+=`<option value="${i}">${g.nome}</option>`;
-   gj.innerHTML+=`<option>${g.nome}</option>`;
- });
+
+    let s =
+        document.getElementById(
+            "selectGuilda"
+        );
+
+    let gj =
+        document.getElementById(
+            "guildaJogador"
+        );
+
+
+    s.innerHTML = "";
+
+    gj.innerHTML = "";
+
+
+    guildas.forEach(
+
+        (g,i) => {
+
+            s.innerHTML += `
+                <option value="${i}">
+                    ${g.nome}
+                </option>
+            `;
+
+
+            gj.innerHTML += `
+                <option>
+                    ${g.nome}
+                </option>
+            `;
+        }
+
+    );
 }
+
+
+/* =====================================
+   GERAR AS 4 QUEDAS
+===================================== */
 
 function gerarCampos(){
- let d=document.getElementById("quedas"); d.innerHTML="";
- for(let i=0;i<4;i++){
-  d.innerHTML+=`<div class="queda-box"><h3>Queda ${i+1}</h3>
-  <input type="number" id="colocacao${i}" placeholder="Colocação">
-  <input type="number" id="kill${i}" placeholder="Kills"></div>`;
- }
+
+    let d =
+        document.getElementById(
+            "quedas"
+        );
+
+
+    d.innerHTML = "";
+
+
+    for(
+        let i = 0;
+        i < 4;
+        i++
+    ){
+
+        d.innerHTML += `
+
+            <div class="queda-box">
+
+                <h3>
+                    Queda ${i+1}
+                </h3>
+
+                <input
+                    type="number"
+                    id="colocacao${i}"
+                    placeholder="Colocação"
+                    min="1"
+                    max="12"
+                >
+
+                <input
+                    type="number"
+                    id="kill${i}"
+                    placeholder="Kills"
+                    min="0"
+                >
+
+            </div>
+
+        `;
+    }
 }
 
-function calcularPontos(c,k){
- let pts={1:12,2:10,3:9,4:8,5:7,6:6,7:5,8:4,9:3,10:2,11:1,12:0};
- return (pts[c]||0)+k;
+
+/* =====================================
+   TABELA DE PONTUAÇÃO
+===================================== */
+
+/*
+    1º  = 12
+    2º  = 9
+    3º  = 8
+    4º  = 7
+    5º  = 6
+    6º  = 5
+    7º  = 4
+    8º  = 3
+    9º  = 2
+    10º = 1
+    11º = 0
+    12º = 0
+
+    Cada Kill = +1 ponto
+*/
+
+function calcularPontos(c, k){
+
+    let pts = {
+
+        1:12,
+        2:9,
+        3:8,
+        4:7,
+        5:6,
+        6:5,
+        7:4,
+        8:3,
+        9:2,
+        10:1,
+        11:0,
+        12:0
+
+    };
+
+
+    return (pts[c] ?? 0) + k;
 }
+
+
+/* =====================================
+   SALVAR RODADAS
+===================================== */
 
 function salvarRodadas(){
- let idx=document.getElementById("selectGuilda").value;
- let tp=0, tk=0;
- for(let i=0;i<4;i++){
-  let c=parseInt(document.getElementById("colocacao"+i).value)||0;
-  let k=parseInt(document.getElementById("kill"+i).value)||0;
-  guildas[idx].colocacoes[i]=c;
-  guildas[idx].kills[i]=k;
-  tp+=calcularPontos(c,k); tk+=k;
- }
- guildas[idx].pontos=tp; guildas[idx].totalKills=tk;
- salvarLocal(); atualizarRanking();
+
+    let idx =
+        document
+        .getElementById(
+            "selectGuilda"
+        )
+        .value;
+
+
+    if(idx === "" || !guildas[idx]){
+
+        alert("Cadastre uma guilda primeiro.");
+
+        return;
+    }
+
+
+    let tp = 0;
+
+    let tk = 0;
+
+
+    for(
+        let i = 0;
+        i < 4;
+        i++
+    ){
+
+        let c =
+            parseInt(
+                document
+                .getElementById(
+                    "colocacao"+i
+                )
+                .value
+            ) || 0;
+
+
+        let k =
+            parseInt(
+                document
+                .getElementById(
+                    "kill"+i
+                )
+                .value
+            ) || 0;
+
+
+        guildas[idx]
+            .colocacoes[i] = c;
+
+
+        guildas[idx]
+            .kills[i] = k;
+
+
+        tp +=
+            calcularPontos(c,k);
+
+
+        tk += k;
+
+    }
+
+
+    guildas[idx].pontos = tp;
+
+    guildas[idx].totalKills = tk;
+
+
+    salvarLocal();
+
+    atualizarRanking();
+
+
+    alert(
+        "Pontuação salva com sucesso!"
+    );
 }
+
+
+/* =====================================
+   RANKING DAS GUILDAS
+===================================== */
 
 function atualizarRanking(){
- let r=[...guildas].sort((a,b)=>b.pontos-a.pontos||b.totalKills-a.totalKills);
- document.getElementById("ranking").innerHTML=r.map((g,i)=>{
- let c=i==0?'top1':i==1?'top2':i==2?'top3':'';
- return `<tr class="${c}"><td>${i+1}</td><td>${g.nome}</td><td>${g.pontos}</td><td>${g.totalKills}</td></tr>`;
- }).join("");
+
+    let r =
+        [...guildas]
+        .sort(
+            (a,b) =>
+                b.pontos - a.pontos ||
+                b.totalKills - a.totalKills
+        );
+
+
+    document
+        .getElementById("ranking")
+        .innerHTML =
+
+        r.map(
+
+            (g,i) => {
+
+                let c =
+                    i == 0
+                    ? "top1"
+                    : i == 1
+                    ? "top2"
+                    : i == 2
+                    ? "top3"
+                    : "";
+
+
+                return `
+
+                    <tr class="${c}">
+
+                        <td>
+                            ${i+1}
+                        </td>
+
+                        <td>
+                            ${g.nome}
+                        </td>
+
+                        <td>
+                            ${g.pontos}
+                        </td>
+
+                        <td>
+                            ${g.totalKills}
+                        </td>
+
+                    </tr>
+
+                `;
+            }
+
+        )
+        .join("");
 }
+
+
+/* =====================================
+   CADASTRAR JOGADOR
+===================================== */
 
 function salvarJogador(){
- let nome=document.getElementById("nomeJogador").value.trim();
- let guilda=document.getElementById("guildaJogador").value;
- if(!nome)return;
- let novo={nome,guilda,kills:[0,0,0,0],totalKills:0};
- let i=jogadores.findIndex(j=>j.nome.toLowerCase()===nome.toLowerCase());
- if(i>=0) jogadores[i]=novo; else jogadores.push(novo);
- salvarLocal(); atualizarJogadores();
+
+    let nome =
+        document
+        .getElementById(
+            "nomeJogador"
+        )
+        .value
+        .trim();
+
+
+    let guilda =
+        document
+        .getElementById(
+            "guildaJogador"
+        )
+        .value;
+
+
+    if(!nome){
+
+        alert(
+            "Digite o nome do jogador."
+        );
+
+        return;
+    }
+
+
+    let novo = {
+
+        nome,
+
+        guilda,
+
+        kills:[
+            0,
+            0,
+            0,
+            0
+        ],
+
+        totalKills:0
+
+    };
+
+
+    let i =
+        jogadores.findIndex(
+
+            j =>
+            j.nome.toLowerCase() ===
+            nome.toLowerCase()
+
+        );
+
+
+    if(i >= 0){
+
+        jogadores[i] = novo;
+
+    }else{
+
+        jogadores.push(novo);
+
+    }
+
+
+    document
+        .getElementById(
+            "nomeJogador"
+        )
+        .value = "";
+
+
+    salvarLocal();
+
+    atualizarJogadores();
+
+
+    alert(
+        "Jogador cadastrado com sucesso!"
+    );
 }
+
+
+/* =====================================
+   ATUALIZAR JOGADORES
+===================================== */
 
 function atualizarJogadores(){
- let s=document.getElementById("selectJogador");
- s.innerHTML="";
- jogadores.forEach((j,i)=>s.innerHTML+=`<option value="${i}">${j.nome} (${j.guilda})</option>`);
- atualizarRankingMVP();
+
+    let s =
+        document.getElementById(
+            "selectJogador"
+        );
+
+
+    s.innerHTML = "";
+
+
+    jogadores.forEach(
+
+        (j,i) => {
+
+            s.innerHTML += `
+
+                <option value="${i}">
+
+                    ${j.nome}
+                    (${j.guilda})
+
+                </option>
+
+            `;
+        }
+
+    );
+
+
+    atualizarRankingMVP();
 }
+
+
+/* =====================================
+   SALVAR KILLS DO JOGADOR
+===================================== */
 
 function salvarKillsJogador(){
- let i=document.getElementById("selectJogador").value;
- if(i==="") return;
- let total=0;
- for(let x=1;x<=4;x++){
-   let k=parseInt(document.getElementById("jk"+x).value)||0;
-   jogadores[i].kills[x-1]=k;
-   total+=k;
- }
- jogadores[i].totalKills=total;
- salvarLocal(); atualizarRankingMVP();
+
+    let i =
+        document
+        .getElementById(
+            "selectJogador"
+        )
+        .value;
+
+
+    if(i === "" || !jogadores[i]){
+
+        alert(
+            "Cadastre um jogador primeiro."
+        );
+
+        return;
+    }
+
+
+    let total = 0;
+
+
+    for(
+        let x = 1;
+        x <= 4;
+        x++
+    ){
+
+        let k =
+            parseInt(
+                document
+                .getElementById(
+                    "jk"+x
+                )
+                .value
+            ) || 0;
+
+
+        jogadores[i]
+            .kills[x-1] = k;
+
+
+        total += k;
+
+    }
+
+
+    jogadores[i]
+        .totalKills = total;
+
+
+    salvarLocal();
+
+    atualizarRankingMVP();
+
+
+    alert(
+        "Kills salvas com sucesso!"
+    );
 }
+
+
+/* =====================================
+   RANKING MVP
+===================================== */
 
 function atualizarRankingMVP(){
- let r=[...jogadores].sort((a,b)=>b.totalKills-a.totalKills);
- document.getElementById("rankingMVP").innerHTML=r.map((j,i)=>
- `<tr><td>${i+1}</td><td>${j.nome}</td><td>${j.guilda}</td><td>${j.totalKills}</td></tr>`).join("");
- if(r.length){
-  document.getElementById("mvpAtual").innerHTML=`${r[0].nome}<br>${r[0].guilda}<br>${r[0].totalKills} KILLS`;
- }
+
+    let r =
+        [...jogadores]
+        .sort(
+            (a,b) =>
+                b.totalKills -
+                a.totalKills
+        );
+
+
+    document
+        .getElementById(
+            "rankingMVP"
+        )
+        .innerHTML =
+
+        r.map(
+
+            (j,i) => `
+
+                <tr>
+
+                    <td>
+                        ${i+1}
+                    </td>
+
+                    <td>
+                        ${j.nome}
+                    </td>
+
+                    <td>
+                        ${j.guilda}
+                    </td>
+
+                    <td>
+                        ${j.totalKills}
+                    </td>
+
+                </tr>
+
+            `
+        )
+        .join("");
+
+
+    if(r.length){
+
+        document
+            .getElementById(
+                "mvpAtual"
+            )
+            .innerHTML = `
+
+                <strong>
+                    ${r[0].nome}
+                </strong>
+
+                <br>
+
+                ${r[0].guilda}
+
+                <br>
+
+                ${r[0].totalKills}
+                KILLS
+
+            `;
+
+    }else{
+
+        document
+            .getElementById(
+                "mvpAtual"
+            )
+            .innerHTML =
+            "Nenhum jogador cadastrado";
+
+    }
 }
+
+
+/* =====================================
+   RESETAR SISTEMA
+===================================== */
 
 function resetarSistema(){
- if(confirm("Deseja resetar tudo?")){
-   guildas=[]; jogadores=[];
-   localStorage.removeItem("guildas");
-   localStorage.removeItem("jogadores");
-   atualizarTudo(); atualizarJogadores();
- }
+
+    if(
+        confirm(
+            "Deseja resetar tudo?"
+        )
+    ){
+
+        guildas = [];
+
+        jogadores = [];
+
+
+        localStorage.removeItem(
+            "guildas"
+        );
+
+        localStorage.removeItem(
+            "jogadores"
+        );
+
+
+        atualizarTudo();
+
+        atualizarJogadores();
+
+    }
 }
+
+
+/* =====================================
+   ATUALIZAR TUDO
+===================================== */
 
 function atualizarTudo(){
- atualizarGuildas();
- atualizarSelect();
- atualizarRanking();
- gerarCampos();
+
+    atualizarGuildas();
+
+    atualizarSelect();
+
+    atualizarRanking();
+
+    gerarCampos();
+
 }
 
+
+/* =====================================
+   INICIAR SISTEMA
+===================================== */
+
 atualizarTudo();
+
 atualizarJogadores();
+
 </script>
+
 </body>
 </html>
